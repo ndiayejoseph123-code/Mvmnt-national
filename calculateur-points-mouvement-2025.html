@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Points Mouvement Enseignants — MEN/MFPT 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2445;
+  --navy-mid: #1a3a6b;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --green: #16a34a;
+  --green-light: #dcfce7;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-400: #94a3b8;
+  --gray-600: #475569;
+  --gray-800: #1e293b;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(15,36,69,0.08);
+  --shadow-md: 0 4px 16px rgba(15,36,69,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--gray-100);
+  color: var(--gray-800);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 28px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 60px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.header p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+
+/* ─── TABS ─── */
+.tabs {
+  background: var(--navy);
+  padding: 0 20px;
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid rgba(255,255,255,0.06);
+}
+.tab-btn {
+  flex: 1;
+  padding: 13px 8px 11px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: -2px;
+}
+.tab-btn.active {
+  color: #fff;
+  border-bottom-color: #38bdf8;
+}
+
+/* ─── TAB CONTENT ─── */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ─── SECTION CARD ─── */
+.section {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--gray-100);
+}
+.section-icon {
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.icon-blue { background: var(--blue-light); }
+.icon-green { background: var(--green-light); }
+.icon-amber { background: var(--amber-light); }
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  line-height: 1.2;
+}
+.section-subtitle {
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  margin-top: 1px;
+}
+
+/* ─── FORM FIELDS ─── */
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+
+.field > label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 6px;
+}
+
+input[type="number"], select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  background: var(--gray-50);
+  color: var(--gray-800);
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.row-2 .field { margin-bottom: 0; }
+
+.hint {
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* ─── CHECKBOX TOGGLE ─── */
+.toggle-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 9px;
+  border: 1.5px solid var(--gray-200);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.toggle-item:last-child { margin-bottom: 0; }
+.toggle-item:hover { border-color: var(--blue); background: var(--blue-light); }
+.toggle-item input[type="checkbox"] {
+  width: 18px; height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+.toggle-label { font-size: 0.81rem; color: var(--gray-600); line-height: 1.45; }
+.toggle-label strong { color: var(--gray-800); display: block; font-size: 0.83rem; margin-bottom: 1px; }
+.pts-badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+/* ─── SUB PANEL ─── */
+.sub-panel {
+  background: #f0f7ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 9px;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sub-panel .field { margin-bottom: 10px; }
+.sub-panel .field:last-child { margin-bottom: 0; }
+
+/* ─── WARNING / NOTE BLOCK ─── */
+.warn-block {
+  display: flex;
+  gap: 8px;
+  background: var(--amber-light);
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #92400e;
+  line-height: 1.45;
+}
+.info-block {
+  display: flex;
+  gap: 8px;
+  background: var(--blue-light);
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #1e40af;
+  line-height: 1.45;
+}
+
+/* ─── CALCULATE BUTTON ─── */
+.btn-wrap { padding: 4px 0 8px; }
+.btn-calculate {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 4px 14px rgba(22,163,74,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-calculate:active { transform: scale(0.98); box-shadow: none; }
+
+/* ─── RESULT CARD ─── */
+.result-card {
+  display: none;
+  background: linear-gradient(150deg, var(--navy) 0%, #1e3a8a 100%);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-top: 4px;
+  box-shadow: 0 8px 24px rgba(15,36,69,0.25);
+}
+.result-total {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.result-total .total-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.result-total .score {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.result-total .score-sub {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+.result-total .score-unit {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.breakdown-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  gap: 10px;
+}
+.breakdown-item:last-child { border-bottom: none; }
+.breakdown-item .item-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.3;
+  flex: 1;
+}
+.breakdown-item .item-pts {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.pts-positive { color: #4ade80; }
+.pts-zero { color: rgba(255,255,255,0.2); }
+.pts-warn { color: #fbbf24; }
+
+.reset-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.6);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.reset-btn:hover { background: rgba(255,255,255,0.12); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">🇸🇳 MEN / MFPT</div>
+  <h1>Calculateur de Points<br>Mouvement Enseignants</h1>
+  <p>Guide révisé — Édition Mai 2025</p>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('adjoint', this)">📋 Poste d'Adjoint</button>
+  <button class="tab-btn" onclick="switchTab('responsabilite', this)">🏫 Poste de Responsabilité</button>
+</div>
+
+<!-- ══════════════ TAB ADJOINT ══════════════ -->
+<div id="tab-adjoint" class="tab-content active">
+<div class="container">
+
+  <!-- PROFIL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">👤</div>
+      <div>
+        <div class="section-title">Profil personnel</div>
+        <div class="section-subtitle">Informations générales sur l'enseignant</div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label>Sexe</label>
+        <select id="a-sexe" onchange="onSexeChange('a')">
+          <option value="M">Masculin</option>
+          <option value="F">Féminin</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Situation</label>
+        <select id="a-matrimonial">
+          <option value="marie">Marié(e)</option>
+          <option value="celibataire">Célibataire</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Nombre d'enfants de moins de 21 ans</label>
+      <input type="number" id="a-enfants" min="0" value="0">
+      <div class="hint">1 point par enfant</div>
+    </div>
+  </div>
+
+  <!-- ANCIENNETÉ & ZONE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📅</div>
+      <div>
+        <div class="section-title">Ancienneté & Lieu de service</div>
+        <div class="section-subtitle">Éléments fondamentaux de calcul</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Ancienneté dans l'enseignement (années)</label>
+      <input type="number" id="a-anc-ens" min="0" value="0" placeholder="Ex : 10">
+      <div class="hint">1 pt × nombre d'années totales depuis la prise de service</div>
+    </div>
+    <div class="field">
+      <label>Ancienneté dans le poste actuel (années)</label>
+      <input type="number" id="a-anc-poste" min="0" value="0" placeholder="Ex : 3">
+      <div class="hint">1 pt × nombre d'années au poste actuel</div>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label>Zone de service actuelle</label>
+        <select id="a-zone">
+          <option value="1">Zone 1 — 1 pt/an</option>
+          <option value="2">Zone 2 — 2 pts/an</option>
+          <option value="3">Zone 3 — 3 pts/an</option>
+          <option value="4">Zone 4 — 4 pts/an</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Années en zone 4 (total)</label>
+        <input type="number" id="a-annees-z4" min="0" value="0" placeholder="0">
+        <div class="hint">Bonus A si ≥ 8 ans</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES ADMIN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📝</div>
+      <div>
+        <div class="section-title">Notes administratives</div>
+        <div class="section-subtitle">Moyenne des 2 dernières années</div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label>Note N-1 (/20)</label>
+        <input type="number" id="a-note1" min="0" max="20" step="0.5" value="0" placeholder="Ex : 17">
+      </div>
+      <div class="field">
+        <label>Note N-2 (/20)</label>
+        <input type="number" id="a-note2" min="0" max="20" step="0.5" value="0" placeholder="Ex : 16">
+      </div>
+    </div>
+    <div class="info-block">ℹ️ Points = (Note N-1 + Note N-2) ÷ 2</div>
+  </div>
+
+  <!-- BONUS R -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-amber">👫</div>
+      <div>
+        <div class="section-title">Bonus Rapprochement de conjoint</div>
+        <div class="section-subtitle">Bonus R — Distance ≥ 70 km requise</div>
+      </div>
+    </div>
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusR" onchange="show('a-bonusR-detail', this.checked)">
+      <div class="toggle-label">
+        <strong>Demander un rapprochement de conjoint</strong>
+        Années d'éloignement × coefficient + distance convertie
+      </div>
+      <span class="pts-badge">Bonus R</span>
+    </label>
+    <div id="a-bonusR-detail" style="display:none">
+      <div class="sub-panel">
+        <div class="field">
+          <label>Type de couple</label>
+          <select id="a-r-type">
+            <option value="2">Couple enseignants (× 2 par année d'éloignement)</option>
+            <option value="1">Couple mixte (× 1 par année d'éloignement)</option>
+          </select>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label>Années d'éloignement</label>
+            <input type="number" id="a-r-annees" min="1" value="1">
+          </div>
+          <div class="field">
+            <label>Distance IEF→IEF (km)</label>
+            <input type="number" id="a-r-dist" min="70" value="70">
+          </div>
+        </div>
+        <div class="hint">Distance convertie : 1 pt par 70 km — plafonné à 11 pts (≥ 700 km)</div>
+        <div class="warn-block">⚠️ Non cumulable avec le Bonus Cas Social (CS)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONUS CAS SOCIAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-amber">🏥</div>
+      <div>
+        <div class="section-title">Bonus Cas Social</div>
+        <div class="section-subtitle">Bonus CS — Max 2 cas cumulables</div>
+      </div>
+    </div>
+    <label class="toggle-item">
+      <input type="checkbox" id="a-cs-enfant" onchange="show('a-cs-enfant-nb', this.checked)">
+      <div class="toggle-label">
+        <strong>Enfant(s) malade(s) ou handicapé(s)</strong>
+        5 pts × nombre d'enfants concernés
+      </div>
+      <span class="pts-badge">5 pts ×</span>
+    </label>
+    <div id="a-cs-enfant-nb" style="display:none" class="sub-panel">
+      <div class="field">
+        <label>Nombre d'enfants malades ou handicapés</label>
+        <input type="number" id="a-cs-nb" min="1" value="1">
+      </div>
+    </div>
+    <label class="toggle-item">
+      <input type="checkbox" id="a-cs-conjoint">
+      <div class="toggle-label">
+        <strong>Conjoint(e) malade</strong>
+        Certificat médical requis
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+    <label class="toggle-item">
+      <input type="checkbox" id="a-cs-ascendant">
+      <div class="toggle-label">
+        <strong>Ascendant direct malade</strong>
+        Certificat médical requis
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+    <div class="warn-block">⚠️ Maximum 2 cas cumulables · Non cumulable avec Bonus R</div>
+  </div>
+
+  <!-- AUTRES BONUS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">⭐</div>
+      <div>
+        <div class="section-title">Autres bonus</div>
+        <div class="section-subtitle">Sélectionnez ceux qui s'appliquent</div>
+      </div>
+    </div>
+
+    <div id="a-bonusG-wrap" style="display:none">
+      <label class="toggle-item">
+        <input type="checkbox" id="a-bonusG">
+        <div class="toggle-label">
+          <strong>Bonus Genre (G)</strong>
+          Femme ayant exercé ≥ 5 ans en zone 4
+        </div>
+        <span class="pts-badge">+5 pts</span>
+      </label>
+    </div>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusA">
+      <div class="toggle-label">
+        <strong>Bonus Ancienneté (A)</strong>
+        ≥ 8 ans de service en zone 4
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusD" onchange="show('a-bonusD-detail', this.checked)">
+      <div class="toggle-label">
+        <strong>Bonus Distance de zone (D)</strong>
+        Mutation vers une zone différente (5 pts par intervalle)
+      </div>
+      <span class="pts-badge">Bonus D</span>
+    </label>
+    <div id="a-bonusD-detail" style="display:none">
+      <div class="sub-panel">
+        <div class="row-2">
+          <div class="field">
+            <label>Zone de départ</label>
+            <select id="a-d-dep">
+              <option value="1">Zone 1</option>
+              <option value="2">Zone 2</option>
+              <option value="3">Zone 3</option>
+              <option value="4">Zone 4</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Zone d'accueil</label>
+            <select id="a-d-acc">
+              <option value="1">Zone 1</option>
+              <option value="2">Zone 2</option>
+              <option value="3">Zone 3</option>
+              <option value="4">Zone 4</option>
+            </select>
+          </div>
+        </div>
+        <div class="hint">En cas de choix sur plusieurs zones, le bonus le moins élevé est accordé.</div>
+      </div>
+    </div>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusE" onchange="show('a-bonusE-detail', this.checked)">
+      <div class="toggle-label">
+        <strong>Bonus Éloignement IEF (E)</strong>
+        Mutation d'une IEF à une autre (1 pt/70 km + ancienneté au poste)
+      </div>
+      <span class="pts-badge">Bonus E</span>
+    </label>
+    <div id="a-bonusE-detail" style="display:none">
+      <div class="sub-panel">
+        <div class="field">
+          <label>Distance entre l'IEF de départ et l'IEF d'accueil (km)</label>
+          <input type="number" id="a-e-dist" min="0" value="0" placeholder="Ex : 140">
+        </div>
+        <div class="hint">Formule : floor(distance ÷ 70) + ancienneté au poste</div>
+      </div>
+    </div>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusPI">
+      <div class="toggle-label">
+        <strong>Bonus Programme Innovant (PI)</strong>
+        ≥ 4 ans successifs dans un programme innovant
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="a-bonusDMP">
+      <div class="toggle-label">
+        <strong>Bonus Daara Moderne Public (DMP)</strong>
+        ≥ 5 ans dans un daara moderne public
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+  </div>
+
+  <div class="btn-wrap">
+    <button class="btn-calculate" onclick="calculerAdjoint()">
+      <span>🧮</span> Calculer mes points
+    </button>
+  </div>
+
+  <div id="result-adjoint" class="result-card">
+    <div class="result-total">
+      <div class="total-label">Score total estimé</div>
+      <div class="score" id="score-adjoint">0<span class="score-unit">pts</span></div>
+      <div class="score-sub">Poste d'Adjoint — MEN/MFPT 2025</div>
+    </div>
+    <div class="breakdown-title">Détail du calcul</div>
+    <div id="breakdown-adjoint"></div>
+    <button class="reset-btn" onclick="resetAdjoint()">↺ Réinitialiser le formulaire</button>
+  </div>
+
+  <div style="height:20px"></div>
+</div>
+</div>
+
+<!-- ══════════════ TAB RESPONSABILITÉ ══════════════ -->
+<div id="tab-responsabilite" class="tab-content">
+<div class="container">
+
+  <!-- PROFIL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">👤</div>
+      <div>
+        <div class="section-title">Profil personnel</div>
+        <div class="section-subtitle">Informations générales</div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label>Sexe</label>
+        <select id="r-sexe" onchange="onSexeChange('r')">
+          <option value="M">Masculin</option>
+          <option value="F">Féminin</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Situation</label>
+        <select id="r-matrimonial">
+          <option value="marie">Marié(e)</option>
+          <option value="celibataire">Célibataire</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Nombre d'enfants</label>
+      <input type="number" id="r-enfants" min="0" value="0">
+    </div>
+  </div>
+
+  <!-- ANCIENNETÉ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📅</div>
+      <div>
+        <div class="section-title">Ancienneté</div>
+        <div class="section-subtitle">Éléments fondamentaux</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Ancienneté dans l'enseignement (années)</label>
+      <input type="number" id="r-anc-ens" min="0" value="0">
+      <div class="hint">1 pt × nombre d'années totales</div>
+    </div>
+    <div class="field">
+      <label>Ancienneté dans le corps (années)</label>
+      <input type="number" id="r-anc-corps" min="0" value="0">
+      <div class="hint">1 pt × années depuis l'acte de nomination dans le corps actuel</div>
+    </div>
+    <div class="field">
+      <label>Années aux postes de responsabilité occupés</label>
+      <input type="number" id="r-anc-resp" min="0" value="0">
+      <div class="hint">2 pts × années (Directeur, Principal, Proviseur, Censeur, SG, Chef des travaux, etc.)</div>
+    </div>
+  </div>
+
+  <!-- NOTES & MÉRITE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📝</div>
+      <div>
+        <div class="section-title">Notes & Mérite</div>
+        <div class="section-subtitle">Comptabilisées selon conditions</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Note de mérite (/20)</label>
+      <input type="number" id="r-merite" min="0" max="20" step="0.5" value="0">
+      <div class="hint">Attestation délivrée par l'IA ou l'IEF — comptabilisée si ≥ 12/20 (Directeur d'école)</div>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label>Note admin N-1 (/20)</label>
+        <input type="number" id="r-note1" min="0" max="20" step="0.5" value="0">
+      </div>
+      <div class="field">
+        <label>Note admin N-2 (/20)</label>
+        <input type="number" id="r-note2" min="0" max="20" step="0.5" value="0">
+      </div>
+    </div>
+    <div class="info-block">ℹ️ La moyenne des notes admin est intégrée au calcul si ≥ 18/20</div>
+  </div>
+
+  <!-- BONUS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">⭐</div>
+      <div>
+        <div class="section-title">Bonus</div>
+        <div class="section-subtitle">Sélectionnez ceux qui s'appliquent</div>
+      </div>
+    </div>
+
+    <div id="r-bonusG1-wrap" style="display:none">
+      <label class="toggle-item">
+        <input type="checkbox" id="r-bonusG1">
+        <div class="toggle-label">
+          <strong>Bonus Genre 1 (G1)</strong>
+          Enseignante avec ≥ 5 ans d'ancienneté dans le corps
+        </div>
+        <span class="pts-badge">+5 pts</span>
+      </label>
+    </div>
+
+    <div id="r-bonusG2-wrap" style="display:none">
+      <div class="field" style="margin-bottom:10px">
+        <label>Bonus Genre 2 (G2) — Femmes uniquement (une seule option)</label>
+        <select id="r-bonusG2">
+          <option value="0">Aucun</option>
+          <option value="15">Adjointe candidate → poste de responsabilité en zone 4 (+15 pts)</option>
+          <option value="10">Adjointe candidate → poste de responsabilité hors zone 4 (+10 pts)</option>
+          <option value="10b">Enseignante en poste de resp. → autre poste de resp. (+10 pts)</option>
+        </select>
+      </div>
+    </div>
+
+    <label class="toggle-item">
+      <input type="checkbox" id="r-bonusPI">
+      <div class="toggle-label">
+        <strong>Bonus Programme Innovant (PI)</strong>
+        ≥ 4 ans successifs dans un programme innovant
+      </div>
+      <span class="pts-badge">+5 pts</span>
+    </label>
+  </div>
+
+  <div class="btn-wrap">
+    <button class="btn-calculate" onclick="calculerResponsabilite()">
+      <span>🧮</span> Calculer mes points
+    </button>
+  </div>
+
+  <div id="result-responsabilite" class="result-card">
+    <div class="result-total">
+      <div class="total-label">Score total estimé</div>
+      <div class="score" id="score-responsabilite">0<span class="score-unit">pts</span></div>
+      <div class="score-sub">Poste de Responsabilité — MEN/MFPT 2025</div>
+    </div>
+    <div class="breakdown-title">Détail du calcul</div>
+    <div id="breakdown-responsabilite"></div>
+    <button class="reset-btn" onclick="resetResponsabilite()">↺ Réinitialiser le formulaire</button>
+  </div>
+
+  <div style="height:20px"></div>
+</div>
+</div>
+
+<script>
+/* ─── UI helpers ─── */
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+function show(id, visible) {
+  document.getElementById(id).style.display = visible ? 'block' : 'none';
+}
+function onSexeChange(prefix) {
+  const isFemme = document.getElementById(prefix + '-sexe').value === 'F';
+  if (prefix === 'a') {
+    show('a-bonusG-wrap', isFemme);
+  } else {
+    show('r-bonusG1-wrap', isFemme);
+    show('r-bonusG2-wrap', isFemme);
+  }
+}
+
+/* ─── Value getters ─── */
+const n = id => parseFloat(document.getElementById(id).value) || 0;
+const s = id => document.getElementById(id).value;
+const c = id => { const el = document.getElementById(id); return el ? el.checked : false; };
+
+/* ─── Distance → bonus R table ─── */
+function distBonus(km) {
+  if (km < 70)  return 0;
+  if (km < 140) return 1;
+  if (km < 210) return 2;
+  if (km < 280) return 3;
+  if (km < 350) return 4;
+  if (km < 420) return 5;
+  if (km < 490) return 6;
+  if (km < 560) return 7;
+  if (km < 630) return 8;
+  if (km < 700) return 9;
+  if (km < 770) return 10;
+  return 11;
+}
+function distIEF(km) { return Math.floor(km / 70); }
+
+/* ─── Render breakdown ─── */
+function renderBreakdown(items, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = items.map(item => `
+    <div class="breakdown-item">
+      <span class="item-label">${item.label}</span>
+      <span class="item-pts ${item.pts > 0 ? 'pts-positive' : item.warn ? 'pts-warn' : 'pts-zero'}">
+        ${item.pts > 0 ? '+' : ''}${fmt(item.pts)} pts
+      </span>
+    </div>`).join('');
+}
+function fmt(n) {
+  if (n === Math.floor(n)) return n.toString();
+  return n.toFixed(2);
+}
+
+/* ─── CALCUL ADJOINT ─── */
+function calculerAdjoint() {
+  const items = [];
+  let total = 0;
+
+  const add = (label, pts, warn = false) => {
+    items.push({ label, pts, warn });
+    total += pts;
+  };
+
+  // Fondamentaux
+  const ancEns  = n('a-anc-ens');
+  const ancPost  = n('a-anc-poste');
+  const zone     = parseInt(s('a-zone'));
+  const note1    = n('a-note1');
+  const note2    = n('a-note2');
+  const enfants  = n('a-enfants');
+  const moyenne  = (note1 + note2) / 2;
+
+  add(`Ancienneté dans l'enseignement (${ancEns} ans × 1 pt)`, ancEns);
+  add(`Ancienneté dans le poste (${ancPost} ans × 1 pt)`, ancPost);
+  add(`Lieu de service — Zone ${zone} (${ancPost} ans × ${zone} pts)`, ancPost * zone);
+  add(`Moyenne notes admin (${note1} + ${note2}) ÷ 2`, moyenne);
+  add(`Charge familiale (${enfants} enfant${enfants > 1 ? 's' : ''} × 1 pt)`, enfants);
+
+  // Bonus R & CS
+  const hasR  = c('a-bonusR');
+  const hasCS = c('a-cs-enfant') || c('a-cs-conjoint') || c('a-cs-ascendant');
+
+  if (hasR && hasCS) {
+    items.push({ label: '⚠️ Bonus R ignoré — incompatible avec Bonus CS', pts: 0, warn: true });
+  } else if (hasR) {
+    const coef      = parseInt(s('a-r-type'));
+    const anneesR   = n('a-r-annees');
+    const distKm    = n('a-r-dist');
+    const distPts   = distBonus(distKm);
+    if (distKm < 70) {
+      items.push({ label: '⚠️ Bonus R — distance < 70 km, non applicable', pts: 0, warn: true });
+    } else {
+      const ptsR = coef * anneesR + distPts;
+      add(`Bonus R — Rapprochement (${coef}×${anneesR} ans + ${distPts} pts dist.)`, ptsR);
+    }
+  }
+
+  if (hasCS) {
+    let cas = 0;
+    if (c('a-cs-enfant') && cas < 2) {
+      const nb = n('a-cs-nb');
+      add(`Bonus CS — Enfant(s) malade(s)/handicapé(s) (${nb} × 5 pts)`, 5 * nb);
+      cas++;
+    }
+    if (c('a-cs-conjoint') && cas < 2) {
+      add('Bonus CS — Conjoint(e) malade', 5);
+      cas++;
+    }
+    if (c('a-cs-ascendant') && cas < 2) {
+      add('Bonus CS — Ascendant direct malade', 5);
+      cas++;
+    }
+    const skipped = [c('a-cs-enfant'), c('a-cs-conjoint'), c('a-cs-ascendant')].filter(Boolean).length - cas;
+    if (skipped > 0) {
+      items.push({ label: '⚠️ 1 cas CS ignoré (maximum 2 cumulables)', pts: 0, warn: true });
+    }
+  }
+
+  // Bonus G
+  if (c('a-bonusG') && s('a-sexe') === 'F') add('Bonus G — Genre (femme ≥ 5 ans en zone 4)', 5);
+  // Bonus A
+  if (c('a-bonusA')) add('Bonus A — Ancienneté ≥ 8 ans en zone 4', 5);
+  // Bonus D
+  if (c('a-bonusD')) {
+    const zDep = parseInt(s('a-d-dep'));
+    const zAcc = parseInt(s('a-d-acc'));
+    const diff = Math.abs(zAcc - zDep);
+    add(`Bonus D — Distance zones (|${zAcc}−${zDep}| = ${diff} intervalle${diff > 1 ? 's' : ''} × 5 pts)`, diff * 5);
+  }
+  // Bonus E
+  if (c('a-bonusE')) {
+    const distE = n('a-e-dist');
+    const ptsE  = distIEF(distE) + ancPost;
+    add(`Bonus E — Éloignement IEF (${distIEF(distE)} pts dist. + ${ancPost} pts ancienneté)`, ptsE);
+  }
+  // Bonus PI
+  if (c('a-bonusPI'))  add('Bonus PI — Programme innovant (≥ 4 ans successifs)', 5);
+  // Bonus DMP
+  if (c('a-bonusDMP')) add('Bonus DMP — Daara moderne public (≥ 5 ans)', 5);
+
+  // Display
+  document.getElementById('score-adjoint').innerHTML = `${fmt(total)}<span class="score-unit">pts</span>`;
+  renderBreakdown(items, 'breakdown-adjoint');
+  const card = document.getElementById('result-adjoint');
+  card.style.display = 'block';
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+/* ─── CALCUL RESPONSABILITÉ ─── */
+function calculerResponsabilite() {
+  const items = [];
+  let total = 0;
+  const add = (label, pts, warn = false) => { items.push({ label, pts, warn }); total += pts; };
+
+  const ancEns  = n('r-anc-ens');
+  const ancCorp = n('r-anc-corps');
+  const ancResp = n('r-anc-resp');
+  const merite  = n('r-merite');
+  const note1   = n('r-note1');
+  const note2   = n('r-note2');
+  const moyenne = (note1 + note2) / 2;
+
+  add(`Ancienneté dans l'enseignement (${ancEns} ans × 1 pt)`, ancEns);
+  add(`Ancienneté dans le corps (${ancCorp} ans × 1 pt)`, ancCorp);
+  add(`Postes de responsabilité (${ancResp} ans × 2 pts)`, ancResp * 2);
+
+  if (merite >= 12) {
+    add(`Note de mérite (${merite}/20)`, merite);
+  } else {
+    items.push({ label: `Note de mérite (${merite}/20) — < 12, non comptabilisée`, pts: 0 });
+  }
+
+  if (moyenne >= 18) {
+    add(`Moyenne notes admin (${fmt(moyenne)}/20) ≥ 18`, moyenne);
+  } else {
+    items.push({ label: `Moyenne notes admin (${fmt(moyenne)}/20) — < 18, non comptabilisée`, pts: 0 });
+  }
+
+  // Bonus
+  if (c('r-bonusG1') && s('r-sexe') === 'F') add('Bonus G1 — Genre (femme ≥ 5 ans dans le corps)', 5);
+
+  if (s('r-sexe') === 'F') {
+    const g2 = s('r-bonusG2');
+    if (g2 === '15') add('Bonus G2 — Adjointe → poste zone 4', 15);
+    else if (g2 === '10' || g2 === '10b') add('Bonus G2 — Genre (+10 pts)', 10);
+  }
+
+  if (c('r-bonusPI')) add('Bonus PI — Programme innovant (≥ 4 ans successifs)', 5);
+
+  document.getElementById('score-responsabilite').innerHTML = `${fmt(total)}<span class="score-unit">pts</span>`;
+  renderBreakdown(items, 'breakdown-responsabilite');
+  const card = document.getElementById('result-responsabilite');
+  card.style.display = 'block';
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+/* ─── RESET ─── */
+function resetAdjoint() {
+  document.querySelectorAll('#tab-adjoint input[type="number"]').forEach(i => i.value = '0');
+  document.querySelectorAll('#tab-adjoint input[type="checkbox"]').forEach(i => i.checked = false);
+  document.querySelectorAll('#tab-adjoint select').forEach(s => s.selectedIndex = 0);
+  ['a-bonusR-detail','a-bonusE-detail','a-bonusD-detail','a-cs-enfant-nb'].forEach(id => show(id, false));
+  show('a-bonusG-wrap', false);
+  document.getElementById('result-adjoint').style.display = 'none';
+}
+function resetResponsabilite() {
+  document.querySelectorAll('#tab-responsabilite input[type="number"]').forEach(i => i.value = '0');
+  document.querySelectorAll('#tab-responsabilite input[type="checkbox"]').forEach(i => i.checked = false);
+  document.querySelectorAll('#tab-responsabilite select').forEach(s => s.selectedIndex = 0);
+  ['r-bonusG1-wrap','r-bonusG2-wrap'].forEach(id => show(id, false));
+  document.getElementById('result-responsabilite').style.display = 'none';
+}
+</script>
+</body>
+</html>
